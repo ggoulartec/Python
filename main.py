@@ -84,7 +84,7 @@ def atualizar():
 
     lista_usuario.pop(index)
     lista_usuario.append(usuario)
-    reload("Gostaria de atualizar mais pessoas?", atualizar)
+    reload("Gostaria de atualizar outro aluno?", atualizar)
 def fechar():
     os.system('pause')
 def main():
