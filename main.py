@@ -1,8 +1,10 @@
-import string, os
+import string
+import os
 
 lista_usuario = []
 optionsMenu = ['1', '2', '3', '4', '5']
 optionsAceite = ['1', '2']
+
 
 def menu():
     print("### Menu Sistema ###")
@@ -28,6 +30,7 @@ def menu():
         print("Invalid Option")
         menu()
 
+
 def reload(mensagem: string, function):
     options = input(mensagem + " [1-Sim/2-Não]: ")
 
@@ -35,6 +38,8 @@ def reload(mensagem: string, function):
         function()
     elif options == "2":
         menu()
+
+
 def cadastrar():
     id = input("ID: ")
     nome = input("NOME: ")
@@ -45,6 +50,7 @@ def cadastrar():
     print("Aluno cadastrado com sucesso")
     reload("Gostaria de cadastrar uma nova pessoa?", cadastrar)
 
+
 def getUsuario(id, list):
     cont = 0
     for usuario in list:
@@ -53,16 +59,21 @@ def getUsuario(id, list):
             cont -= 1
             return cont
 
+
 def remover():
     id = input("Digite o ID: ")
     index = getUsuario(id, lista_usuario)
     lista_usuario.pop(index)
     print("Aluno Removido com sucesso")
     reload("Gostaria de remover outro aluno?", remover)
+
+
 def listar():
     for list in lista_usuario:
         print(list[0] + ',', list[1] + ',', list[2] + ',', list[3])
     reload("Gostaria listar novamente?", listar)
+
+
 def atualizar():
     id = input("Digite o ID: ")
     index = getUsuario(id, lista_usuario)
@@ -85,9 +96,14 @@ def atualizar():
     lista_usuario.pop(index)
     lista_usuario.append(usuario)
     reload("Gostaria de atualizar outro aluno?", atualizar)
+
+
 def fechar():
     os.system('pause')
+
+
 def main():
     menu()
+
 
 main()
